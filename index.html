@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reflexive Verben – Passwortgeschütztes Quiz (A2)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #4CAF50;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .question p {
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+    .options li {
+      margin: 6px 0;
+    }
+    .btn {
+      display: block;
+      margin: 20px auto;
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #45a049;
+    }
+    .result {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    #quizContainer { display: none; }
+    #loginBox {
+      max-width: 400px;
+      margin: 100px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+    #passwordInput {
+      padding: 10px;
+      font-size: 16px;
+      width: 70%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Passwort-Login -->
+  <div id="loginBox">
+    <h2>🔒 Passwort erforderlich</h2>
+    <input type="password" id="passwordInput" placeholder="Passwort eingeben">
+    <button class="btn" onclick="checkPassword()">Login</button>
+    <p id="errorMsg" style="color:red;"></p>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="quizContainer" class="container">
+    <h1>Reflexive Verben – Übungsquiz (A2)</h1>
+    <form id="quizForm">
+
+      <!-- Alle 20 Fragen -->
+      <div class="question"><p>1. Ich ________ jeden Morgen.</p>
+        <ul class="options">
+          <li><input type="radio" name="q1" value="A"> A) wasche</li>
+          <li><input type="radio" name="q1" value="B"> B) wasche mich</li>
+          <li><input type="radio" name="q1" value="C"> C) wasche dich</li>
+        </ul>
+      </div>
+
+      <div class="question"><p>2. Du ________ gut nach dem Sport.</p>
+        <ul class="options">
+          <li><input type="radio" name="q2" value="A"> A) duschst</li>
+          <li><input type="radio" name="q2" value="B"> B) duschst dich</li>
+          <li><input type="radio" name="q2" value="C"> C) dusche dich</li>
+        </ul>
+      </div>
+
+      <div class="question"><p>3. Er ________ für die Prüfung.</p>
+        <ul class="options">
+          <li><input type="radio" name="q3" value="A"> A) lernt</li>
+          <li><input type="radio" name="q3" value="B"> B) lernt sich</li>
+          <li><input type="radio" name="q3" value="C"> C) lerne mich</li>
+        </ul>
+      </div>
+
+      <div class="question"><p>4. Wir ________ im Winter immer warm.</p>
+        <ul class="options">
+          <li><input type="radio" name="q4" value="A"> A) halten uns</li>
+          <li><input type="radio" name="q4" value="B"> B) haltet uns</li>
+          <li><input type="radio" name="q4" value="C"> C) halten uns warm</li>
+        </ul>
+      </div>
+
+      <div class="question"><p>5. Sie (Pl.) ________ am Wochenende oft.</p>
+        <ul class="options">
+          <li><input type="radio" name="q5" value="A"> A) erholen sich</li>
+          <li><input type="radio" name="q5" value="B"> B) erholt sich</li>
+          <li><input type="radio" name="q5" value="C"> C) erholen uns</li>
+        </ul>
+      </div>
+
+      <div class="question"><p>6. Ihr ________ vor der Schule immer.</p>
+        <ul class="options">
+          <li><input type="radio" name="q6" value="A"> A) beeilt euch</li>
+          <li><input type="radio" name="q6" value="B"> B) beeilt sich</li>
+          <li><input type="radio" name="q6" value="C"> C) beeile dich</li>
+        </ul>
+      </div>
+
+      <div class="question"><p>7. Ich ________ für die Arbeit.</p>
+        <ul class="options">
+          <li><input type="radio" name="q7" value="A"> A) schminke mich</li>
+          <li><input type="radio" name="q7" value="B"> B) schminken mich</li>
+          <li><input type="radio" name="q7" value="C"> C) schmink mich</li>
+        </ul>
+      </div>
+
+      <div class="question"><p>8. Sie (Pl.) ________ immer vor dem Spiegel.</p>
+        <ul class="options">
+          <li><input type="radio" name="q8" value="A"> A) sieht sich</li>
+          <li><input type="radio" name="q8" value="B"> B) sehen sich</li>
+          <li><input type="radio" name="q8" value="C"> C) sehe mich</li>
+        </ul>
+      </div>
+
+      <div class="question"><p>9. Wir ________ am Abend immer.</p>
+        <ul class="options">
+          <li><input type="radio" name="q9" value="A"> A) entspannen</li>
+          <li><input type="radio" name="q9" value="B"> B) entspannen uns</li>
+          <li><input type="radio" name="q9" value="C"> C) entspanne uns</li>
+        </ul>
+      </div>
+
+      <div class="question"><p>10. Du ________ immer vor der Party.</p>
+        <ul class="options">
+          <li><input type="radio" name="q10" value="A"> A) ziehst dich um</li>
+          <li><input type="radio" name="q10" value="B"> B) umziehst dich</li>
+          <li><input type="radio" name="q10" value="C"> C) ziehe mich um</li>
+        </ul>
+      </div>
+
+      <div class="question"><p>11. Er ________ oft nach dem langen Tag.</p>
+        <ul class="options">
+          <li><input type="radio" name="q11" value="A"> A) schläft sich</li>
+          <li><input type="radio" name="q11" value="B"> B) schläft</li>
+          <li><input type="radio" name="q11" value="C"> C) schläft sich aus</li>
+        </ul>
+      </div>
+
+      <div class="question"><p>12. Ich ________ zu Hause.</p>
+        <ul class="options">
+          <li><input type="radio" name="q12" value="A"> A) fühle mich wohl</li>
+          <li><input type="radio" name="q12" value="B"> B) fühlst dich wohl</li>
+          <li><input type="radio" name="q12" value="C"> C) fühle mich</li>
+        </ul>
+      </div>
+
+      <div class="question"><p>13. Sie (Sg.) ________ auf dem Sofa.</p>
+        <ul class="options">
+          <li><input type="radio" name="q13" value="A"> A) setzen sich</li>
+          <li><input type="radio" name="q13" value="B"> B) setzt sich</li>
+          <li><input type="radio" name="q13" value="C"> C) setze mich</li>
+        </ul>
+      </div>
+
+      <div class="question"><p>14. Wir ________ mit den Hausaufgaben.</p>
+        <ul class="options">
+          <li><input type="radio" name="q14" value="A"> A) beschäftigen uns</li>
+          <li><input type="radio" name="q14" value="B"> B) beschäftige mich</li>
+          <li><input type="radio" name="q14" value="C"> C) beschäftige uns</li>
+        </ul>
+      </div>
+
+      <div class="question"><p>15. Ihr ________ für das Abendessen.</p>
+        <ul class="options">
+          <li><input type="radio" name="q15" value="A"> A) setzt euch</li>
+          <li><input type="radio" name="q15" value="B"> B) setzt euch hin</li>
+          <li><input type="radio" name="q15" value="C"> C) setzt dich</li>
+        </ul>
+      </div>
+
+      <div class="question"><p>16. Ich ________ an das Gespräch.</p>
+        <ul class="options">
+          <li><input type="radio" name="q16" value="A"> A) erinnere mich</li>
+          <li><input type="radio" name="q16" value="B"> B) erinnerst dich</li>
+          <li><input type="radio" name="q16" value="C"> C) erinnert euch</li>
+        </ul>
+      </div>
+
+      <div class="question"><p>17. Er ________ über den Witz.</p>
+        <ul class="options">
+          <li><input type="radio" name="q17" value="A"> A) lacht sich</li>
+          <li><input type="radio" name="q17" value="B"> B) lacht</li>
+          <li><input type="radio" name="q17" value="C"> C) lachen</li>
+        </ul>
+      </div>
+
+      <div class="question"><p>18. Du ________ oft nach der Arbeit.</p>
+        <ul class="options">
+          <li><input type="radio" name="q18" value="A"> A) entspannst dich</li>
+          <li><input type="radio" name="q18" value="B"> B) entspanne dich</li>
+          <li><input type="radio" name="q18" value="C"> C) entspannst uns</li>
+        </ul>
+      </div>
+
+      <div class="question"><p>19. Wir ________ jeden Tag im Park.</p>
+        <ul class="options">
+          <li><input type="radio" name="q19" value="A"> A) treffen uns</li>
+          <li><input type="radio" name="q19" value="B"> B) trifft uns</li>
+          <li><input type="radio" name="q19" value="C"> C) trefft uns</li>
+        </ul>
+      </div>
+
+      <div class="question"><p>20. Ich ________ immer vor Prüfungen.</p>
+        <ul class="options">
+          <li><input type="radio" name="q20" value="A"> A) fürchte mich</li>
+          <li><input type="radio" name="q20" value="B"> B) fürchtest dich</li>
+          <li><input type="radio" name="q20" value="C"> C) fürchten uns</li>
+        </ul>
+      </div>
+
+      <button type="button" class="btn" onclick="checkAnswers()">Ergebnisse anzeigen</button>
+    </form>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    // === Passwortschutz ===
+    const PASSWORD = "reflexiv1";
+    function checkPassword() {
+      const input = document.getElementById("passwordInput").value.trim();
+      const error = document.getElementById("errorMsg");
+      if (input === PASSWORD) {
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("quizContainer").style.display = "block";
+      } else {
+        error.textContent = "❌ Falsches Passwort!";
+      }
+    }
+
+    // === Quiz-Auswertung ===
+    const correctAnswers = {
+      q1:'B', q2:'B', q3:'A', q4:'C', q5:'A',
+      q6:'A', q7:'A', q8:'B', q9:'B', q10:'A',
+      q11:'C', q12:'A', q13:'B', q14:'A', q15:'B',
+      q16:'A', q17:'B', q18:'A', q19:'A', q20:'A'
+    };
+    function checkAnswers() {
+      let score = 0;
+      const form = document.getElementById('quizForm');
+      for (let i = 1; i <= 20; i++) {
+        const answer = form.querySelector(`input[name="q${i}"]:checked`);
+        if (answer && answer.value === correctAnswers[`q${i}`]) score++;
+      }
+      document.getElementById('result').textContent =
+        `✅ Du hast ${score} von 20 richtig!`;
+    }
+  </script>
+</body>
+</html>
