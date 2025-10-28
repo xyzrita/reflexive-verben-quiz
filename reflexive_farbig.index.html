@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Reflexive Verben Quiz</title>
+<style>
+body {
+    background-color: #f0f8ff;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+.question {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 15px;
+}
+button:hover {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+.feedback {
+    margin-top: 5px;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<script>
+let passwort = prompt("Bitte Passwort eingeben:");
+if (passwort !== "reflexiv1") {
+  alert("Falsches Passwort! Zugriff verweigert.");
+  document.body.innerHTML = "<h1>Zugriff verweigert</h1>";
+}
+</script>
+
+<h1>Reflexive Verben – A2 Quiz</h1>
+<p>Fülle die Lücken mit der richtigen Form des reflexiven Verbs.</p>
+
+<div class="question">
+  <p>1. Ich ________ jeden Morgen.</p>
+  <input type="text" id="q1">
+  <p class="feedback" id="fb1"></p>
+</div>
+
+<div class="question">
+  <p>2. Du ________ gut nach dem Sport.</p>
+  <input type="text" id="q2">
+  <p class="feedback" id="fb2"></p>
+</div>
+
+<div class="question">
+  <p>3. Er ________ für die Prüfung.</p>
+  <input type="text" id="q3">
+  <p class="feedback" id="fb3"></p>
+</div>
+
+<div class="question">
+  <p>4. Wir ________ im Winter immer warm.</p>
+  <input type="text" id="q4">
+  <p class="feedback" id="fb4"></p>
+</div>
+
+<div class="question">
+  <p>5. Sie (Sg./Pl.) ________ am Wochenende oft.</p>
+  <input type="text" id="q5">
+  <p class="feedback" id="fb5"></p>
+</div>
+
+<div class="question">
+  <p>6. Ihr ________ vor der Schule immer.</p>
+  <input type="text" id="q6">
+  <p class="feedback" id="fb6"></p>
+</div>
+
+<div class="question">
+  <p>7. Ich ________ für die Arbeit.</p>
+  <input type="text" id="q7">
+  <p class="feedback" id="fb7"></p>
+</div>
+
+<div class="question">
+  <p>8. Sie (Sg./Pl.) ________ immer vor dem Spiegel.</p>
+  <input type="text" id="q8">
+  <p class="feedback" id="fb8"></p>
+</div>
+
+<div class="question">
+  <p>9. Wir ________ am Abend immer.</p>
+  <input type="text" id="q9">
+  <p class="feedback" id="fb9"></p>
+</div>
+
+<div class="question">
+  <p>10. Du ________ immer vor der Party.</p>
+  <input type="text" id="q10">
+  <p class="feedback" id="fb10"></p>
+</div>
+
+<div class="question">
+  <p>11. Er ________ oft nach dem langen Tag.</p>
+  <input type="text" id="q11">
+  <p class="feedback" id="fb11"></p>
+</div>
+
+<div class="question">
+  <p>12. Ich ________ zu Hause.</p>
+  <input type="text" id="q12">
+  <p class="feedback" id="fb12"></p>
+</div>
+
+<div class="question">
+  <p>13. Sie (Sg./Pl.) ________ auf dem Sofa.</p>
+  <input type="text" id="q13">
+  <p class="feedback" id="fb13"></p>
+</div>
+
+<div class="question">
+  <p>14. Wir ________ mit den Hausaufgaben.</p>
+  <input type="text" id="q14">
+  <p class="feedback" id="fb14"></p>
+</div>
+
+<div class="question">
+  <p>15. Ihr ________ für das Abendessen.</p>
+  <input type="text" id="q15">
+  <p class="feedback" id="fb15"></p>
+</div>
+
+<div class="question">
+  <p>16. Ich ________ an das Gespräch.</p>
+  <input type="text" id="q16">
+  <p class="feedback" id="fb16"></p>
+</div>
+
+<div class="question">
+  <p>17. Er ________ über den Witz.</p>
+  <input type="text" id="q17">
+  <p class="feedback" id="fb17"></p>
+</div>
+
+<div class="question">
+  <p>18. Du ________ oft nach der Arbeit.</p>
+  <input type="text" id="q18">
+  <p class="feedback" id="fb18"></p>
+</div>
+
+<div class="question">
+  <p>19. Wir ________ jeden Tag im Park.</p>
+  <input type="text" id="q19">
+  <p class="feedback" id="fb19"></p>
+</div>
+
+<div class="question">
+  <p>20. Ich ________ immer vor Prüfungen.</p>
+  <input type="text" id="q20">
+  <p class="feedback" id="fb20"></p>
+</div>
+
+<button onclick="checkAnswers()">Antworten prüfen</button>
+
+<script>
+function checkAnswers() {
+    const answers = [
+        "wasche mich","duschst dich","lernt","halten uns warm","erholt sich","beeilt euch",
+        "schminke mich","sehen sich","entspannen uns","ziehst dich um","schläft sich aus",
+        "fühle mich wohl","setzt sich","beschäftigen uns","setzt euch hin","erinnere mich",
+        "lacht","entspannst dich","treffen uns","fürchte mich"
+    ];
+
+    for (let i = 1; i <= 20; i++) {
+        let userAnswer = document.getElementById("q"+i).value.toLowerCase().trim();
+        let fb = document.getElementById("fb"+i);
+        // akzeptiere auch alternative Singular/Plural für „Sie“
+        if(i === 5 || i === 8 || i === 13){
+            if(userAnswer === "erholt sich" || userAnswer === "erholen sich" ||
+               userAnswer === "setzt sich" || userAnswer === "setzen sich" ||
+               userAnswer === "sehen sich" || userAnswer === "setzen sich"){
+                fb.innerHTML = "✅ Richtig!";
+            } else {
+                fb.innerHTML = "❌ Falsch, richtige Antworten: Singular oder Plural möglich";
+            }
+        } else {
+            if(userAnswer === answers[i-1]) fb.innerHTML = "✅ Richtig!";
+            else fb.innerHTML = "❌ Falsch, richtig: " + answers[i-1];
+        }
+    }
+}
+</script>
+
+</body>
+</html>
